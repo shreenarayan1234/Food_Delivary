@@ -14,32 +14,32 @@ export const Categories = [
     },
     {
         id:2,
-        name:"Breakfast",
+        name:"breakfast",
         icon:<MdFreeBreakfast className='h-[60px] w-[60px] text-green-600'/>
     },
     {
         id:3,
-        name:"Soups",
+        name:"soups",
         icon:<LuSoup className='h-[60px] w-[60px] text-green-600'/>
     },
     {
         id:4,
-        name:"Pasta",
+        name:"pasta",
         icon:<TbSoupOff className='h-[60px] w-[60px] text-green-600'/>
     },
     {
         id:5,
-        name:"Main_Course",
+        name:"main_course",
         icon:<MdOutlineFoodBank className='h-[60px] w-[60px] text-green-600'/>
     },
     {
         id:6,
-        name:"Pizza",
+        name:"pizza",
         icon:<GiFullPizza className='h-[60px] w-[60px] text-green-600'/>
     },
     {
         id:7,
-        name:"Burger ",
+        name:"burger",
         icon:<GiHamburger className='h-[60px] w-[60px] text-green-600'/>
     },  
 ]

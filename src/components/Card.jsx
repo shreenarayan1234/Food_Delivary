@@ -19,7 +19,7 @@ const Card = ({name,price,type,image}) => {
             <div className='text-lg font-bold text-green-500'>{price}</div>
             <div className='flex justify-around item-center text-green-500 text-lg text-semibold gap-2'>{type==="veg"?<LuLeafyGreen />:<GiChickenOven />}<span>{type}</span></div>
         </div>
-        <button className='bg-green-300 text-gray-700 font-bold text-lg rounded-lg hover:bg-green-400 transaction-all cursor-pointer'>Add to Dish</button>
+        <button className='bg-green-700 text-white font-bold text-lg rounded-lg hover:bg-green-400 transaction-all cursor-pointer'>Add to Dish</button>
     </div>
   )
 }
