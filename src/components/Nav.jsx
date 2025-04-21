@@ -4,6 +4,7 @@ import { IoSearch } from "react-icons/io5";
 import { LuShoppingBag } from "react-icons/lu";
 import { dataContext } from '../context/UserContext';
 import { food_items } from '../food';
+import { useSelector } from 'react-redux';
 
 
 
@@ -13,6 +14,8 @@ const Nav = () => {
    let newlist=  food_items.filter((item)=>item.food_name.includes(input) || item.food_name.toLowerCase().includes(input))
    setCate(newlist)
   },[input])
+  let items = useSelector(state=>state.cart)
+  console.log(items)
   return (
     <div className='w-full h-[100px] flex justify-between text-center px-5 md:px-8 py-3'>
         <div className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl">
@@ -24,8 +27,8 @@ const Nav = () => {
                 <input type="text" placeholder='Search your dishes......' className='outline-none text-[16px] md:text-[20px] relative w-full' onChange={(e)=>setInput(e.target.value)} value={input}/>
             </form>
         </div>
-        <div className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl" onClick={()=>setShowCart(true)}>
-          <span className="absolute top-3 right-10 text-green-500">0</span>
+        <div className="w-[60px] h-[60px] bg-white flex justify-center items-center rounded-md shadow-xl cursor-pointer" onClick={()=>setShowCart(true)}>
+          <span className="absolute top-3 right-10 text-green-500">{items.length}</span>
           <LuShoppingBag className='w-[30px] h-[30px] text-green-500'/>
         </div>
     </div>

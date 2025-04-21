@@ -5,6 +5,8 @@ import Card from '../components/Card'
 import { food_items } from '../food'
 import { dataContext } from '../context/UserContext'
 import { RxCross2 } from "react-icons/rx";
+import Card2 from '../components/Card2'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
   let {cate, setCate, input, showCart, setShowCart } = useContext(dataContext)
@@ -17,6 +19,7 @@ const Home = () => {
       setCate(newList)
     }
   }
+  let items = useSelector(state=>state.cart)
   return (
     <div className='bg-slate-200 w-full min-h-screen'>
         <Nav/>
@@ -38,11 +41,16 @@ const Home = () => {
             <Card key={item.id} name={item.food_name} image={item.food_image} price={item.price} type={item.food_type} id={item.id}/>
           ))}
         </div>
-      <div className={`w-[50vh] h-[100%] bg-white p-5 shadow-5 fixed top-0 right-0 text-green-500 transaction-all duration-500 ${showCart?"translate-x-0":"translate-x-full"}`}>
-        <header className='w-[100%] flex justify-between items-center'>
+      <div className={`w-full md:w-[50vh] h-[100%] bg-white p-5 shadow-5 fixed top-0 right-0 transaction-all duration-500 ${showCart?"translate-x-0":"translate-x-full"}`}>
+        <header className='w-[100%] flex justify-between items-center text-green-500'>
           <span>Order Itmes</span>
           <RxCross2 className='w-[25px] h-[25px] font-semibold' onClick={()=>setShowCart(false)}/>
           </header>
+          <div className='w-full mt-9 flex flex-col gap-8'>
+            {items.map((item)=>(
+              <Card2 name={item.name} price={item.price} image={item.image} id={item.id} qty={item.qty}/>
+            ))}
+          </div>
       </div>
     </div>
   )
